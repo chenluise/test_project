@@ -6,7 +6,7 @@
 from selenium import webdriver
 import time
 
-sourse = open('C:\Python27\data\user.txt','r')
+sourse = open('user.txt','r')
 values = sourse.readlines()
 sourse.close()
 
