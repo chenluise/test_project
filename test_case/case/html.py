@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
     '''方法二'''
 
-    with open('F:\photo\oresult'+now+'.html','wb') as f:
+    with open('/Users/chenlu/dev/testresult'+now+'.html','wb') as f:
         runner = HTMLTestRunner.HTMLTestRunner(
             stream=f,
             title=u"百度搜索测试报告",

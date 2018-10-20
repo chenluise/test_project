@@ -10,7 +10,7 @@ class BaiduTest(unittest.TestCase):
         self.base_url="https://www.baidu.com"
 
     def test_baidu(self):
-        u'''百度搜索用例ee'''
+        u'''百度搜索'''
         driver = self.driver
         driver.get(self.base_url+"/")
         driver.find_element_by_id("kw").clear()

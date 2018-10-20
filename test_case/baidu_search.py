@@ -17,7 +17,7 @@ for line in values:
     driver.find_element_by_id("kw").clear()
     driver.find_element_by_id("kw").send_keys(line.split(",")[0])
     driver.find_element_by_id("su").click()
-    time.sleep(2)
+    time.sleep(5)
 
 driver.quit()
 
