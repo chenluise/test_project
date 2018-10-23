@@ -1,13 +1,16 @@
 #coding=utf-8
 
+'''发送邮件报告整合
+定时开始--执行套件中的用例--生成日志，保存到路径--取出最新的文件—发送邮件'''
+
+import os
 import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import time
 import unittest
+from email.mime.text import MIMEText
+
 import HTMLTestRunner
-import time,os
-from test_case.case import test_baidu
-from test_case.case import test_youdao
+
 
 #---------生成测试用例，套件/遍历----------
 
@@ -18,7 +21,7 @@ from test_case.case import test_youdao
 
 
 def creatsuite():
-    test_dir = './case'
+    test_dir = './nocase'
     discover = unittest.defaultTestLoader.discover(test_dir, pattern="test*.py")
     suite = unittest.TestSuite()
     suite.addTest(discover)
@@ -27,9 +30,9 @@ def creatsuite():
 
 #-----取出最新生成的报告----------
 def send_reports():
-    result_dir= 'F:\photo'
+    result_dir= '/Users/chenlu/dev/testresult'
     lists = os.listdir(result_dir)
-    lists.sort(key=lambda fn:os.path.getmtime(result_dir+"\\"+fn))
+    lists.sort(key=lambda fn:os.path.getmtime(result_dir+"/"+fn))
     print (u'最新测试生成的报告：'+lists[-1])
     file_new = os.path.join(result_dir,lists[-1])
     print file_new
@@ -62,7 +65,7 @@ def send_mails(file_new):
 if __name__ == '__main__':
     alltestnames=creatsuite()
     now = time.strftime("%Y-%m-%d %H.%M.%S")
-    filename = 'F:\photo\oresult'+now+'.html'
+    filename = '/Users/chenlu/dev/testresult/result'+now+'.html'
     fp = file(filename, 'wb')
     runner = HTMLTestRunner.HTMLTestRunner(
         stream=fp,
@@ -75,7 +78,7 @@ if __name__ == '__main__':
     k=1
     while k<2:
         now_time = time.strftime('%H.%M')
-        if now_time =='17.54':
+        if now_time =='15.13':
             print (u'开始运行脚本')
             # runner = unittest.TextTestRunner
             runner.run(alltestnames)

@@ -2,14 +2,14 @@
 
 '''整合选择最新的测试报告，使用框架，自动发邮件'''
 
+import os
 import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import time
 import unittest
+from email.mime.text import MIMEText
+
 import HTMLTestRunner
-import time,os
-from test_case.case import test_baidu
-from test_case.case import test_youdao
+
 
 #'''定义发送邮件'''
 def send_mail(file_new):

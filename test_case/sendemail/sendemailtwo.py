@@ -15,7 +15,7 @@ password = 'uoyygabukibrbjcd'
 msgRoot = MIMEMultipart('related')
 msgRoot['subject'] = subject
 
-att = MIMEText(open('F:\photo\oresult2018-08-13 15.53.07.html','rb').read(),'base64','utf-8')
+att = MIMEText(open('/Users/chenlu/dev/testresult/result2018-10-20 17.47.01.html','rb').read(),'base64','utf-8')
 att["Content-Type"] = 'application/octet-stream'
 att["Content-Disposition"] = 'attachment; filename="test.html"'
 msgRoot.attach(att)

@@ -4,7 +4,8 @@
 '''
 
 import unittest
-from test_case.case import test_baidu,test_youdao
+
+from test_case.nocase import test_baidu, test_youdao
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()

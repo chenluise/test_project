@@ -4,7 +4,7 @@
 '''
 import unittest
 
-test_dir = './case'
+test_dir = './nocase'
 
 def get_allcase():
     discover = unittest.defaultTestLoader.discover(test_dir, pattern="test*.py")
